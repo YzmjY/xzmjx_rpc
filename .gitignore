@@ -1,5 +1,6 @@
 /cmake-build-debug
 /build
+/third_party/convert
 
 # Prerequisites
 *.d

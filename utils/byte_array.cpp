@@ -12,7 +12,7 @@
 
 
 namespace xzmjx{
-static auto g_logger = log::GetDefault()
+static auto g_logger = log::GetDefault();
 ByteArray::Node::Node(size_t s)
         :ptr(new char[s]),
          next(nullptr),

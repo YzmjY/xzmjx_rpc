@@ -12,7 +12,7 @@
 #include "libgo.h"
 #include "yaml-cpp/yaml.h"
 #include "log.h"
-#include <boost/lexical_cast.hpp>
+#include "boost/lexical_cast.hpp"
 
 namespace xzmjx{
 /**

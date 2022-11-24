@@ -31,8 +31,6 @@ link_directories(${PROJECT_SOURCE_DIR}/third_party/spdlog/build)
 # yaml-cpp
 include_directories("${PROJECT_SOURCE_DIR}/third_party/yaml-cpp/include")
 link_directories(${PROJECT_SOURCE_DIR}/third_party/yaml-cpp/build)
-# convert
-include_directories("${PROJECT_SOURCE_DIR}/third_party/convert/include")
 
 
 aux_source_directory(${PROJECT_SOURCE_DIR}/utils XZMJX_SRC_LIST)
@@ -46,11 +44,11 @@ message(${PROJECT_SOURCE_DIR}/lib)
 
 set(TARGET "xzmjx")
 set(STATIC_T "xzmjx_static")
-set(LINK_ARGS xzmjx libgo pthread dl yaml-cpp)
-
-add_subdirectory(tests)
+set(LINK_ARGS xzmjx libgo static_hook pthread dl yaml-cpp)
 
 add_library(${STATIC_T} STATIC ${XZMJX_SRC_LIST})
 set_target_properties("${STATIC_T}" PROPERTIES OUTPUT_NAME "${TARGET}")
 target_link_libraries("${STATIC_T}" -Wl,--start-group ${LINK_ARGS} -Wl,--end-group)
+
+add_subdirectory(tests)
 

@@ -294,7 +294,7 @@ public:
             std::scoped_lock<RWMutexType::ReadView> lock(m_rwMutex.Reader());
             return toStr()(m_val);
         }catch (std::exception& ex){
-            SPDLOG_ERROR("ConfigVar::toString() exception {} ,convert: {} to string name =  {}",ex.what(),TypeToName<T>(),m_name);
+            SPDLOG_ERROR("ConfigVar::toString() exception {} ,convert: {} to string name =  {}",ex.what(), typeid(T).name(),m_name);
         }
         return "";
      }
@@ -303,7 +303,7 @@ public:
         try{
             setValue(fromStr()(f));
         } catch (std::exception &ex) {
-            SPDLOG_ERROR("ConfigVar::toString() exception {} ,convert: {} to string name =  {} - {}",ex.what(),TypeToName<T>(),m_name,f);
+            SPDLOG_ERROR("ConfigVar::toString() exception {} ,convert: {} to string name =  {} - {}",ex.what(),typeid(T).name(),m_name,f);
         }
      }
 
@@ -328,7 +328,7 @@ public:
      }
 
      std::string getTypeName() override{
-        return TypeToName<T>();
+        return typeid(T).name();
      }
 
      uint64_t addListener(on_change_cb cb){
@@ -383,7 +383,7 @@ public:
                     SPDLOG_ERROR("Lookup name = {} exists",name);
                     return p;
                 }else{
-                    SPDLOG_ERROR("Lookup name({}) exists but type not {},real type = {} {}",name,TypeToName<T>(),iter->second->getTypeName(),iter->second->toString());
+                    SPDLOG_ERROR("Lookup name({}) exists but type not {},real type = {} {}",name,typeid(T).name(),iter->second->getTypeName(),iter->second->toString());
                     return nullptr;
                 }
              }
@@ -415,7 +415,7 @@ public:
              SPDLOG_ERROR("Lookup name({}) exists",name);
              return p;
          }else{
-             SPDLOG_ERROR("Lookup name({}) exists but type not {},real type = {} {}",name,TypeToName<T>(),iter->second->getTypeName(),iter->second->toString());
+             SPDLOG_ERROR("Lookup name({}) exists but type not {},real type = {} {}",name,typeid(T).name(),iter->second->getTypeName(),iter->second->toString());
              return nullptr;
          }
      }

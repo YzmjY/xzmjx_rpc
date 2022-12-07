@@ -89,8 +89,8 @@ public:
     std::size_t getBaseSize() const{return m_base_size;}
     std::size_t getReadSize() const{return m_size - m_position;}
 
-    bool isLittleEndain() const{return m_endian == std::endian::little;}
-    void setLittleEndain(){m_endian = std::endian::little;}
+    bool isLittleEndian() const{return m_endian == std::endian::little;}
+    void setLittleEndian(){ m_endian = std::endian::little;}
 
     std::size_t getSize() const { return m_size;}
 

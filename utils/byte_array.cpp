@@ -234,9 +234,9 @@ uint32_t ByteArray::readUint32(){
         uint8_t b = readFuint8();
         if(b&0x80){
             ans |= ((uint32_t)(b&0x7F))<<i;
-            break;///当前为此次编码的最后一组
         }else{
             ans |= ((uint32_t)b)<<i;
+            break;///当前为此次编码的最后一组
         }
     }
     return ans;

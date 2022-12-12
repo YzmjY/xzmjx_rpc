@@ -14,13 +14,13 @@
 #include "rpc_session.h"
 namespace xzmjx::rpc {
 class RpcServiceRegistry : public TcpServer {
- public:
+public:
   using ptr = std::shared_ptr<RpcServiceRegistry>;
   using RWMutexType = co_rwmutex;
 
   void handleClient(Socket::ptr client) final;
 
- private:
+private:
   void unregisterService(const std::string& server_addr);
   Protocol::ptr handleRegisterService(const std::string& addr,
                                       Protocol::ptr req);
@@ -28,11 +28,11 @@ class RpcServiceRegistry : public TcpServer {
   Protocol::ptr handleHeartbeat();
   Protocol::ptr handleServiceDiscover(Protocol::ptr req);
 
- private:
+private:
   std::multimap<std::string, std::string> m_services_provider;
   std::multimap<std::string, std::string> m_address_to_service;
   RWMutexType m_rwmutex;
 };
-}  // namespace xzmjx::rpc
+} // namespace xzmjx::rpc
 
-#endif  // XZMJX_RPC_REGISTRY_H
+#endif // XZMJX_RPC_REGISTRY_H

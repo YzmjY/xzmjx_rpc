@@ -88,14 +88,12 @@ void RpcServer::handleRegistrySessionRecv() {
 
     auto type = uint8_t(req->getType());
     switch (type) {
-      case (uint8_t)Protocol::Type::kRpcServiceRegisterResponse:
-        break;
+      case (uint8_t)Protocol::Type::kRpcServiceRegisterResponse: break;
       case (uint8_t)Protocol::Type::kRpcHeartbeat:
         SPDLOG_LOGGER_DEBUG(g_logger, "heartbeat from registry");
         m_registry_heartbeat_rsp = true;
         break;
-      default:
-        break;
+      default: break;
     }
   }
 }
@@ -171,8 +169,7 @@ void RpcServer::handleClient(Socket::ptr client) {
         case (uint8_t)Protocol::Type::kRpcHeartbeat:
           rsp = handleHeartbeat();
           break;
-        default:
-          break;
+        default: break;
       }
       if (rsp && session->isConnected()) {
         session->sendProtocol(rsp);
@@ -209,4 +206,4 @@ Protocol::ptr RpcServer::handleMethodCall(Protocol::ptr req) {
   return Protocol::Create(Protocol::Type::kRpcMethodResponse, std::move(ctx),
                           s.toString(), req->getSeqId());
 }
-}  // namespace xzmjx::rpc
+} // namespace xzmjx::rpc

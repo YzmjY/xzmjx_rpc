@@ -8,7 +8,7 @@
 
 namespace xzmjx::rpc {
 class Context {
- public:
+public:
   using ptr = std::shared_ptr<Context>;
   Context() : m_code(RPCErrorCode::kRpcDefault) {}
   Context& operator=(const Context&) = default;
@@ -21,10 +21,10 @@ class Context {
   RPCErrorCode getCode() const { return m_code; }
   const std::string& getMsg() const { return m_msg; }
 
- private:
+private:
   RPCErrorCode m_code;
   std::string m_msg;
 };
-}  // namespace xzmjx::rpc
+} // namespace xzmjx::rpc
 
-#endif  // XZMJX_CONTEXT_H
+#endif // XZMJX_CONTEXT_H

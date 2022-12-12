@@ -20,7 +20,7 @@ namespace xzmjx::rpc {
 template <class T>
 concept VoidType = std::is_void_v<T>;
 class RpcClient {
- public:
+public:
   using ptr = std::shared_ptr<RpcClient>;
   explicit RpcClient(co::Scheduler* worker = &co_sched);
   ~RpcClient();
@@ -49,7 +49,7 @@ class RpcClient {
 
   void close();
 
- private:
+private:
   void handleSend();
   void handleRecv();
 
@@ -186,7 +186,7 @@ class RpcClient {
     return {std::nullopt, ctx};
   }
 
- private:
+private:
   /// 协议发送通道
   co_chan<Protocol::ptr> m_chan;
 
@@ -223,5 +223,5 @@ class RpcClient {
   /// 保护序列号和未决的调用map
   co_mutex m_guard;
 };
-}  // namespace xzmjx::rpc
-#endif  // XZMJX_RPC_CLIENT_H
+} // namespace xzmjx::rpc
+#endif // XZMJX_RPC_CLIENT_H

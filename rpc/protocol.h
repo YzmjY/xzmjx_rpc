@@ -17,7 +17,7 @@ namespace xzmjx::rpc {
  */
 class Context;
 class Protocol {
- public:
+public:
   static constexpr uint8_t kDefaultVersion = 0x10;
   static constexpr uint8_t kMagic = 0xfc;
   static constexpr uint8_t kHeaderLen = 20;
@@ -70,7 +70,7 @@ class Protocol {
         m_payload_len, m_payload);
   }
 
- public:
+public:
   Protocol();
   void setMagic(uint8_t m) { m_magic = m; }
   void setVersion(uint8_t v) { m_version = v; }
@@ -99,7 +99,7 @@ class Protocol {
 
   bool carryMsg() const { return m_carry_msg; }
 
- private:
+private:
   bool m_carry_msg;
   uint8_t m_magic;
   uint8_t m_version;
@@ -111,6 +111,6 @@ class Protocol {
   std::string m_payload;
 };
 using RPCErrorCode = xzmjx::rpc::Protocol::ErrCode;
-}  // namespace xzmjx::rpc
+} // namespace xzmjx::rpc
 
-#endif  // XZMJX_PROTOCOL_H
+#endif // XZMJX_PROTOCOL_H

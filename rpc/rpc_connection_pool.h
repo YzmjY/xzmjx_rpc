@@ -7,11 +7,11 @@
 #include <memory>
 namespace xzmjx::rpc {
 class RpcConnectionPool {
- public:
+public:
   using ptr = std::shared_ptr<RpcConnectionPool>;
 
- private:
+private:
 };
-}  // namespace xzmjx::rpc
+} // namespace xzmjx::rpc
 
-#endif  // XZMJX_RPC_CONNECTION_POOL_H
+#endif // XZMJX_RPC_CONNECTION_POOL_H

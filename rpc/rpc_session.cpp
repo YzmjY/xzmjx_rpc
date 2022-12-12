@@ -64,5 +64,5 @@ bool RpcSession::sendProtocol(Protocol::ptr msg) {
   std::unique_lock<co::co_mutex> lock(m_mutex);
   return writeFixedSize(bt, bt->getSize()) > 0;
 }
-}  // namespace rpc
-}  // namespace xzmjx
+} // namespace rpc
+} // namespace xzmjx

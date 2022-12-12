@@ -15,7 +15,7 @@
 #include "utils/byte_array.h"
 namespace xzmjx::rpc {
 class Serializer {
- public:
+public:
   using ptr = std::shared_ptr<Serializer>;
 
   Serializer() { m_bt = std::make_shared<ByteArray>(); }
@@ -288,9 +288,9 @@ class Serializer {
     return *this;
   }
 
- private:
+private:
   ByteArray::ptr m_bt;
 };
-}  // namespace xzmjx::rpc
+} // namespace xzmjx::rpc
 
-#endif  // XZMJX_SERIALIZER_H
+#endif // XZMJX_SERIALIZER_H

@@ -46,8 +46,7 @@ void RpcServiceRegistry::handleClient(Socket::ptr client) {
       case (uint8_t)Protocol::Type::kRpcServiceRegisterRequest:
         rsp = handleRegisterService(provider_addr, req);
         break;
-      default:
-        break;
+      default: break;
     }
 
     if (rsp && session && session->isConnected()) {
@@ -173,4 +172,4 @@ Protocol::ptr RpcServiceRegistry::handleServiceDiscover(Protocol::ptr req) {
                           std::move(ctx), serializer.toString(),
                           req->getSeqId());
 }
-}  // namespace xzmjx::rpc
+} // namespace xzmjx::rpc

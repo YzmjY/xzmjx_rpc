@@ -83,15 +83,11 @@ void RpcClient::handleRecv() {
     }
     uint8_t type = uint8_t(msg->getType());
     switch (type) {
-      case (uint8_t)Protocol::Type::kRpcHeartbeat:
-        handleHeartbeat();
-        break;
+      case (uint8_t)Protocol::Type::kRpcHeartbeat: handleHeartbeat(); break;
       case (uint8_t)Protocol::Type::kRpcMethodResponse:
         handleMethodResponse(msg);
         break;
-      default:
-        SPDLOG_LOGGER_WARN(g_logger, "unknown protocol");
-        break;
+      default: SPDLOG_LOGGER_WARN(g_logger, "unknown protocol"); break;
     }
   }
 }
@@ -126,4 +122,4 @@ void RpcClient::close() {
     m_heartbeat_timer_id.StopTimer();
   }
 }
-}  // namespace xzmjx::rpc
+} // namespace xzmjx::rpc

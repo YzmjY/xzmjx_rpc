@@ -11,7 +11,7 @@
 namespace xzmjx {
 namespace rpc {
 class RpcSession : public SocketStream {
- public:
+public:
   using ptr = std::shared_ptr<RpcSession>;
   using MutexType = co::co_mutex;
 
@@ -20,11 +20,11 @@ class RpcSession : public SocketStream {
   Protocol::ptr recvProtocol();
   bool sendProtocol(Protocol::ptr msg);
 
- private:
-  MutexType m_mutex;  // 保护复用连接
+private:
+  MutexType m_mutex; // 保护复用连接
 };
 
-}  // namespace rpc
-}  // namespace xzmjx
+} // namespace rpc
+} // namespace xzmjx
 
-#endif  // XZMJX_RPCSESSION_H
+#endif // XZMJX_RPCSESSION_H

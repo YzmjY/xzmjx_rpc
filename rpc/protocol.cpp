@@ -80,4 +80,4 @@ ByteArray::ptr Protocol::encode() const {
   bt->setPosition(0);
   return bt;
 }
-}  // namespace xzmjx::rpc
+} // namespace xzmjx::rpc

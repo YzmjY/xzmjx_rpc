@@ -4,13 +4,14 @@
 
 #ifndef XZMJX_LOG_H
 #define XZMJX_LOG_H
-#include "spdlog/spdlog.h"
-#include "libgo.h"
 #include <memory>
+
+#include "libgo.h"
+#include "spdlog/spdlog.h"
 namespace xzmjx {
 namespace log {
 std::shared_ptr<spdlog::logger> GetDefault();
 }
-}
+}  // namespace xzmjx
 
-#endif //XZMJX_LOG_H
+#endif  // XZMJX_LOG_H
